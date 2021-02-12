@@ -15,7 +15,7 @@ namespace TopicBasedSubscriber
 
             using (var bus = RabbitHutch.CreateBus("host=localhost"))
             {
-                bus.Subscribe<TextMessage>("subscriber" + id, HandleTextMessage, 
+                bus.PubSub.Subscribe<TextMessage>("subscriber" + id, HandleTextMessage, 
                                            x => x.WithTopic(topic));
                 Console.WriteLine("Listening for messages.");
                 Console.ReadLine();

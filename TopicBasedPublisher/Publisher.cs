@@ -16,7 +16,7 @@ namespace TopicBasedPublisher
                 while ((topic = Console.ReadLine()) != "Quit")
                 {
                     var message = new TextMessage { Text = topic };
-                    bus.Publish<TextMessage>(message, topic);
+                    bus.PubSub.Publish<TextMessage>(message, topic);
                     Console.WriteLine("Enter a new topic: ");
                 }
             }
